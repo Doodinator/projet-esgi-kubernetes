@@ -10,14 +10,12 @@ services:
       - "3306:3306"
     volumes:
       - paymybuddy-db-data:/var/lib/mysql
-      - ./src/main/resources/database:/docker-entrypoint-initdb.d  # Montage du dossier initdb contenant create.sql
+      - ./initdb:/docker-entrypoint-initdb.d  # Montage du dossier initdb contenant create.sql
     networks:
       - paymybuddy-network
 
   paymybuddy-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: garfer/paymybuddy-backend  # Utilisation de l'image Docker Hub du backend
     environment:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
