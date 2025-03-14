@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   paymybuddy-db:
     image: mysql:8.0
@@ -15,7 +13,7 @@ services:
       - paymybuddy-network
 
   paymybuddy-backend:
-    image: garfer/paymybuddy-backend  # Utilisation de l'image Docker Hub du backend
+    image: garfer/pmb  # Utilisation de l'image Docker Hub du backend
     environment:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
