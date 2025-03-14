@@ -9,4 +9,4 @@ spec:
   - port: 8080
     targetPort: 8080
     nodePort: 28070  # Port accessible depuis l'extérieur
-  type: nodeport
+  type: NodePort
