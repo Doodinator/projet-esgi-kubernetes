@@ -8,5 +8,5 @@ spec:
   ports:
   - port: 8080
     targetPort: 8080
-    nodePort: 31010  # Port accessible depuis l'extérieur
+    nodePort: 31010
   type: NodePort
