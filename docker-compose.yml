@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   paymybuddy-db:
     image: mysql:8.0
@@ -9,9 +10,7 @@ services:
       - "3306:3306"
     volumes:
       - paymybuddy-db-data:/var/lib/mysql
-      - ./initdb:/docker-entrypoint-initdb.d  # Montage du dossier initdb contenant create.sql
-      - ./custom-entrypoint.sh:/custom-entrypoint.sh # Pointage vers un script d'entrée personnalisé
-    command: ["/bin/bash", "-c", "/custom-entrypoint.sh && docker-entrypoint.sh mysqld"]  # Exécution de notre script custom
+      - ./src/main/resources/database:/docker-entrypoint-initdb.d  # Montage du dossier initdb contenant create.sql
     networks:
       - paymybuddy-network
 
